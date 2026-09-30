@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>广州浮生记</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="assets/icon.jpg">
+<link rel="stylesheet" href="style.css?v=15">
+</head>
+<body>
+<div id="toast" hidden></div>
+<header><h1>广州浮生记 <small>浮生一日 · 烟火羊城</small></h1><button id="mute" class="ghost" style="float:right;margin-top:-30px">🔊</button></header>
+<div id="overlay" class="overlay" hidden><div id="ovcard" class="modal"></div></div>
+
+<section id="screen-new" class="wrap">
+  <div class="hero">
+    <h2>来广州，做自己</h2>
+    <p>倒卖 · 打工 · 学艺 · 街坊 · 地标，一个不赶时间的江湖。</p>
+    <p class="tip" id="clientver"></p>
+  </div>
+  <h3>选择你的身份</h3>
+  <div class="row" id="identities"></div>
+  <div class="panel">
+    <div class="seg">
+      <button data-g="male" class="gbtn sel">👦 男</button>
+      <button data-g="female" class="gbtn">👧 女</button>
+    </div>
+    <div class="row">
+      <input id="pname" maxlength="6" placeholder="姓名（2-6字）">
+      <button id="randname" class="ghost">随机</button>
+    </div>
+    <button id="btn-new" class="primary big">开始浮生</button>
+    <div class="row">
+      <input id="loadid" placeholder="已有存档ID，填入读档">
+      <button id="btn-load" class="ghost">读档</button>
+    </div>
+    <p class="tip">三身份无天赋，只差开局资源与起点。ID即权限，请妥善保管。</p>
+  </div>
+</section>
+
+<section id="screen-game" class="wrap" hidden>
+  <div id="who"></div>
+  <img id="distimg" class="banner" alt="城区">
+  <div id="status"></div>
+  <div id="stathelp" class="panel" hidden>💰钱：本钱 · ❤健康：低买贵，归零住院 · ⚡体力：做事才消耗，休息回体、吃喝回体 · 😊心情：定打工收入 · 🤝人脉：加限购 · 📍城区：各地货不同 · 🏠住处：每周交租</div>
+
+  <div id="tab-trade">
+    <div id="calendar" class="panel"></div>
+    <h3>城区</h3><div class="row" id="districts"></div>
+    <div class="row" id="snacks"></div>
+    <h3>行情 <small id="day"></small></h3>
+    <table id="market"></table>
+    <div id="legend" class="tip"></div>
+    <div class="row">
+      <button id="btn-next">过一天 · 休息</button>
+    </div>
+    <h3>背包</h3>
+    <div id="bagup" class="panel"></div>
+    <div id="bag" class="panel"></div>
+  </div>
+
+  <div id="tab-work" hidden>
+    <h3>打工</h3><div id="jobs"></div>
+    <h3>学艺</h3><div id="learn"></div>
+  </div>
+
+  <div id="tab-album" hidden>
+    <div class="row" id="albumtabs">
+      <button data-a="lm" class="abtn sel">地标</button>
+      <button data-a="npc" class="abtn ghost">街坊</button>
+      <button data-a="ach" class="abtn ghost">成就</button>
+      <button data-a="ev" class="abtn ghost">事件</button>
+    </div>
+    <div id="sub-lm"><h3 id="albumhead">地标摄影卡</h3><div class="grid" id="album"></div></div>
+    <div id="sub-npc" hidden><h3 id="albumnpchead">街坊</h3><div class="grid" id="album-npc"></div></div>
+    <div id="sub-ach" hidden><h3>成就</h3><div id="ach"></div></div>
+    <div id="sub-ev" hidden><h3 id="codexhead">事件图鉴</h3><div class="grid" id="codex"></div></div>
+  </div>
+
+  <div id="tab-mine" hidden>
+    <h3>我的存档</h3>
+    <div class="panel row">存档ID <b id="mine-saveid"></b> <button id="btn-copy" class="ghost">复制</button>
+      <button id="btn-save">保存</button> <button id="btn-share" class="ghost">生成分享图</button></div>
+    <div class="row" id="ranktabs">
+      <button data-r="money" class="rbtn sel">资产榜</button>
+      <button data-r="photos" class="rbtn ghost">收藏榜</button>
+      <button data-r="favor" class="rbtn ghost">人情榜</button>
+    </div>
+    <div id="rank"></div>
+    <h3>住房</h3>
+    <div id="house" class="panel"></div>
+    <h3>近日账目</h3>
+    <div id="recaps"></div>
+    <h3>生涯时间线</h3><ol id="timeline" class="panel"></ol>
+    <p class="tip" id="appver"></p>
+  </div>
+
+  <nav id="bottomnav">
+    <button data-t="trade" class="tbtn sel">🧺<span>生意</span></button>
+    <button data-t="work" class="tbtn">💼<span>谋生</span></button>
+    <button data-t="album" class="tbtn">📷<span>相册</span></button>
+    <button data-t="mine" class="tbtn">👤<span>我的</span></button>
+  </nav>
+</section>
+
+<script src="app.js?v=44"></script>
+</body>
+</html>

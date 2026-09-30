@@ -1,0 +1,12 @@
+services:
+  app:
+    # 部署版：镜像即完整程序，无 build、无代码挂载，pull 即可跑
+    image: zangle/guangzhou-fushengji:1.0
+    container_name: fushengji
+    ports:
+      - "3000:3000"
+    volumes:
+      # 只挂数据：玩家存档 + sqlite 榜单，持久化与备份就靠这两个目录
+      - ./saves:/app/saves
+      - ./data:/app/data
+    restart: unless-stopped

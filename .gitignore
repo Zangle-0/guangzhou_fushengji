@@ -1,0 +1,29 @@
+# 玩家真实存档——绝不能进仓库（备份走 tar，不走 git）
+saves/
+
+# 运行时数据（sqlite 榜单等）
+data/
+
+# 内部设计文档，不公开
+广州浮生记-策划总结.md
+AGENTS.md
+*.bak
+*.bak1
+*.bak2
+*.bak3
+*.bak4
+*.bak5
+
+# 日志与临时产物
+*.log
+*.err
+test-report.txt
+
+# 依赖与系统
+node_modules/
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/
+.idea/

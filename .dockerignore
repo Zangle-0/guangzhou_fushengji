@@ -1,0 +1,6 @@
+saves/
+data/
+node_modules/
+*.log
+.git/
+.opencode/
