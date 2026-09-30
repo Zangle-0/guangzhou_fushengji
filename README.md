@@ -22,36 +22,16 @@
 
 ## 快速开始
 
-### Docker（推荐）
+把 `docker-compose.yml` 放到一个空目录，建好数据目录，然后启动：
 
 ```bash
-docker run -d --name fushengji \
-  -p 3000:3000 \
-  -v "$PWD/saves:/app/saves" \
-  -v "$PWD/data:/app/data" \
-  zangle/guangzhou-fushengji:1.0
-```
-
-或者用 compose：
-
-```bash
-git clone https://github.com/Zangle-0/guangzhou-fushengji.git
-cd guangzhou-fushengji
-mkdir -p saves data          # 这两个目录不进版本库，要自己建
+mkdir -p saves data          # 玩家存档与排行榜，都不进版本库
 docker compose up -d
 ```
 
 打开 http://localhost:3000
 
-### 裸跑
-
-需要 **Node ≥ 22.5**（`node:sqlite` 是内置实验模块，低版本会报错）：
-
-```bash
-node server.js     # http://localhost:3000
-```
-
-改代码时用 `node --watch server.js` 自动重启。
+镜像已推送到 [Docker Hub](https://hub.docker.com/r/zangle/guangzhou-fushengji)，compose 会自动拉取，不需要克隆本仓库。
 
 ## 目录结构
 
@@ -95,16 +75,7 @@ docker compose exec app sh      # 进容器
 docker compose pull && up -d    # 升级
 ```
 
-镜像内不含任何玩家数据（`.dockerignore` 排除 `saves/` `data/`），换机器部署只需要 compose 文件加两个空目录。
-
-更新镜像：
-
-```bash
-docker build -t zangle/guangzhou-fushengji:1.1 .
-docker push zangle/guangzhou-fushengji:1.1
-```
-
-然后把 `docker-compose.yml` 里的 `image:` 改成新 tag，再 `pull && up -d`。
+镜像内不含任何玩家数据，换机器部署只需要 compose 文件加两个空目录。
 
 ## License
 
