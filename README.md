@@ -43,9 +43,6 @@ docker compose up -d
 
 打开 http://localhost:3000
 
-> Windows PowerShell 用户把上面 `docker run` 里的 `"$PWD/saves:/app/saves"` 改成 `${PWD}\saves:/app/saves`，
-> 或直接用 compose 方式（不受 shell 差异影响）。
-
 ### 裸跑
 
 需要 **Node ≥ 22.5**（`node:sqlite` 是内置实验模块，低版本会报错）：
@@ -108,19 +105,6 @@ docker push zangle/guangzhou-fushengji:1.1
 ```
 
 然后把 `docker-compose.yml` 里的 `image:` 改成新 tag，再 `pull && up -d`。
-
-## 开发约定
-
-数值权威在服务端，前端只负责展示。改数值规则时**两处必须同步**：`server.js` 里的 helper，以及 `public/app.js` 里对应的镜像公式（`BUYM` / `INCM` / `SELLR` / `STKB`）。
-
-前端改动后记得 bump `index.html` 里的 `app.js?v=N`，否则浏览器会拿旧缓存。
-
-改完跑一遍语法检查和接口测试：
-
-```bash
-node --check server.js && node --check public/app.js
-node test-full.mjs
-```
 
 ## License
 
